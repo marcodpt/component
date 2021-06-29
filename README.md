@@ -1,2 +1,69 @@
-# test
-A component to test other components
+# Component
+> A component to test, debug and build other components
+
+[Live demo](https://marcodpt.github.io/component/)
+
+## Motivation
+Create a framework agnostic component definition to scale frontend applications
+in the spirit of microfrontends.
+
+## Definition
+A `component` is a function with the following signature
+
+### component(element, params) 
+ - DOM node `element`: is the DOM node where the component should be mounted
+ - object `params`: is the params that component recieve to mount itself
+ - returns function `update(data)`: an optional function to deals with external 
+ updates request
+   - `data`: the info passed to update component
+
+## Usage
+Define your component and create an example file in the spirit of
+[this file](https://raw.githubusercontent.com/marcodpt/component/main/example.js).
+
+Then just go to the browser and use the following url:
+
+```
+https://marcodpt.github.io/component/#{Your example file url}
+```
+
+To use self hosted just use the `test` function in the `API` spec
+
+When you define your `component` if you are a `hyperapp` fan like myself,
+consider using `component` function in the `API` spec. This is by no means
+a must, and you are absolutely free to use wherever framework you want, even
+no framework or just a template engine.
+
+## API
+### source(data)
+A function that prints to string a variable data that can contain functions, 
+objects, arrays, any sort of javascript data. Used for debugging purposes.
+ - `data`: Any javascript variable, can be an object, can contain functions
+
+### component(element, view, params, update)
+A hyperapp helper to build components in this project especification.
+ - DOM node `element`: is the DOM node where the component should be mounted
+ - function `view(h, text)`: is a function that returns the `hyperapp` view
+function where `h` and `text` are defined by `hyperapp`
+ - object `params`: is the params that will `init` `hyperapp`
+ - function `update(state, data)`: is a function to create the function that 
+deals with external updates request
+   - object `state`: is the `hyperapp` state
+   - `data`: the info that external updates requests will pass to your
+`component` 
+   - return object: An object with the new state of `hyperapp`
+ - returns a `component` as defined in this document
+
+### test(element, params)
+This is a `component` following this document definition.
+To test your `component` that follows this document definition too.
+ - object `params` properties:
+   - string `title`: Is the title of the component
+   - object `samples`: The keys are the examples name, and the values are the 
+examples `params` passed to your `component` for testing purposes.
+   - string `target`: Is the DOM selector to the element where your component
+should be mounted
+   - function `comp`: Is your `component` definition following this document.
+   - object `updates`: The keys are the updates names, and the values are the
+updates `data` passed from parent to your `component`, this is optional, if
+your `component` does not support updates just ignore this.
