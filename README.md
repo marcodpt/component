@@ -66,6 +66,7 @@ This is a `component` following this document definition.
 To test your `component` that follows this document definition too.
  - object `params` properties:
    - string `title`: Is the title of the component
+   - string `gh`: Is the url of your github repo if your want the github ribbon
    - object `samples`: The keys are the examples name, and the values are the 
 examples `params` passed to your `component` for testing purposes.
    - string `target`: Is the DOM selector to the element where your component

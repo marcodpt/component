@@ -11,9 +11,16 @@ export default (h, text) => ({
   tab,
   error,
   raw,
-  set
+  set,
+  gh
 }) =>
   h('div', {}, [
+    !gh ? null : h('a', {
+      class: 'github-fork-ribbon',
+      href: gh,
+      'data-ribbon': 'Fork me on GitHub',
+      title: 'Fork me on GitHub'
+    }, text('Fork me on GitHub')),
     h('h1', {}, text(title)),
     h('div', {
       class: 'input-group mb-3'

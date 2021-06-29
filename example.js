@@ -2,6 +2,7 @@ import {component} from './index.js'
 
 export default {
   title: 'Color component',
+  gh: 'https://github.com/marcodpt/component',
   samples: {
     red: {
       click: state => ({...state, color: 'red'})
