@@ -5,7 +5,7 @@
 
 ## Motivation
 Create a framework agnostic component definition to scale frontend applications
-in the spirit of microfrontends.
+in the spirit of [micro frontends](https://micro-frontends.org/).
 
 ## Definition
 A `component` is a function with the following signature
@@ -29,7 +29,8 @@ https://marcodpt.github.io/component/#{Your example file url}
 
 To use self hosted just use the `test` function in the `API` spec
 
-When you define your `component` if you are a `hyperapp` fan like myself,
+When you define your `component` if you are a
+[hyperapp](https://github.com/jorgebucaran/hyperapp) fan like myself,
 consider using `component` function in the `API` spec. This is by no means
 a must, and you are absolutely free to use wherever framework you want, even
 no framework or just a template engine.
@@ -41,17 +42,23 @@ objects, arrays, any sort of javascript data. Used for debugging purposes.
  - `data`: Any javascript variable, can be an object, can contain functions
 
 ### component(element, view, params, update)
-A hyperapp helper to build components in this project especification.
+A [hyperapp](https://github.com/jorgebucaran/hyperapp) helper to build
+components in this project specification.
  - DOM node `element`: is the DOM node where the component should be mounted
- - function `view(h, text)`: is a function that returns the `hyperapp` view
-function where `h` and `text` are defined by `hyperapp`
- - object `params`: is the params that will `init` `hyperapp`
+ - function `view(h, text)`: is a function that returns the
+[hyperapp](https://github.com/jorgebucaran/hyperapp) view
+function where `h` and `text` are defined by
+[hyperapp](https://github.com/jorgebucaran/hyperapp)
+ - object `params`: is the params that will `init`
+[hyperapp](https://github.com/jorgebucaran/hyperapp)
  - function `update(state, data)`: is a function to create the function that 
 deals with external updates request
-   - object `state`: is the `hyperapp` state
+   - object `state`: is the
+[hyperapp](https://github.com/jorgebucaran/hyperapp) state
    - `data`: the info that external updates requests will pass to your
 `component` 
-   - return object: An object with the new state of `hyperapp`
+   - return object: An object with the new state of
+[hyperapp](https://github.com/jorgebucaran/hyperapp)
  - returns a `component` as defined in this document
 
 ### test(element, params)
