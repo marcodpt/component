@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="utf-8">
+      <title>Test hyperapp view</title>
+      <link
+        rel="stylesheet"
+        href="https://code.jquery.com/qunit/qunit-2.14.0.css"
+      />
+      <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+   </head>
+   <body>
+      <div id="qunit"></div>
+      <div id="qunit-fixture"></div> 
+      
+      <script type="module">
+        import {query} from
+          'https://cdn.jsdelivr.net/gh/marcodpt/query/index.js'
+        import {
+          h, text
+        } from 'https://cdn.jsdelivr.net/npm/hyperapp@2.0.18/index.min.js'
+        import {renderToString} from
+          'https://cdn.jsdelivr.net/npm/hyperapp-render@4.0.0/esm/browser.js'
+
+        QUnit.config.autostart = false
+
+        const html = str => str
+          .replace(/>[\s\r\n]*</g, "><")
+          .replace(/\s\s+/g, ' ')
+          .replace(/" >/g, '">')
+          .replace(/" \/>/g, '"\/>')
+          .trim()
+
+        const Q = query(location.search.substr(1))
+
+        import(Q.url).then(tests => {
+          QUnit.start()
+          tests.default.forEach(test => {
+            const view = test[1]
+            QUnit.test(test[0], assert => {
+              test[2].forEach(X => {
+                assert.equal(
+                  renderToString(view(h, text)(X[0])),
+                  html(X[1]),
+                  X[2]
+                )
+              })
+            })
+          })
+        }).catch(err => {
+          alert('error loading: '+Q.url)
+          throw err
+        })
+      </script>
+   </body>
+</html>
