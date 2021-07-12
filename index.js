@@ -27,8 +27,9 @@ const source = X => {
 }
 
 const component = (e, view, params, update) => {
+  e.innerHTML = '<div></div>'
   const A = {
-    node: e,
+    node: e.querySelector('div'),
     view: view(h, text),
     init: params
   }
