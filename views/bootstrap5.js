@@ -1,4 +1,4 @@
-import {source} from '../index.js'
+import source from '../source.js'
 
 export default (h, text) => ({
   title,

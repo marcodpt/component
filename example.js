@@ -1,4 +1,4 @@
-import {component} from './index.js'
+import component from './index.js'
 
 export default {
   title: 'Color component',
