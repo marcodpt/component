@@ -1,7 +1,20 @@
 # Component
 > A component to test, debug and build other components
 
-[Live demo](https://marcodpt.github.io/component/)
+## Examples
+ - [navbar](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fnavbar%2Fsample.js)
+ - [table](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Ftable%2Fsample.js)
+ - [form](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fform%2Fsample.js)
+ - [chart](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fchart%2Fsample.js)
+ - [graph](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fgraph%2Fsample.js)
+ - [SPA](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fspa%2Fsample.js)
+ - [template](https://marcodpt.github.io/component/?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Ftemplate%2Fsample.js)
+
+## Tests
+ - [navbar](https://marcodpt.github.io/component/tests.html?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fnavbar%2Ftests.js)
+ - [table](https://marcodpt.github.io/component/tests.html?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Ftable%2Ftests.js)
+ - [form](https://marcodpt.github.io/component/tests.html?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fform%2Ftests.js)
+ - [views](https://marcodpt.github.io/component/tests.html?url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2Fmarcodpt%2Fviews%2Ftests.js)
 
 ## Motivation
 Create a framework agnostic component definition to scale frontend applications
@@ -36,12 +49,7 @@ a must, and you are absolutely free to use wherever framework you want, even
 no framework or just a template engine.
 
 ## API
-### source(data)
-A function that prints to string a variable data that can contain functions, 
-objects, arrays, any sort of javascript data. Used for debugging purposes.
- - `data`: Any javascript variable, can be an object, can contain functions
-
-### component(element, view, params, update)
+### index.js: function (element, view, params, update)
 A [hyperapp](https://github.com/jorgebucaran/hyperapp) helper to build
 components in this project specification.
  - DOM node `element`: is the DOM node where the component should be mounted
@@ -60,8 +68,13 @@ deals with external updates request
    - return object: An object with the new state of
 [hyperapp](https://github.com/jorgebucaran/hyperapp)
  - returns a `component` as defined in this document
+ 
+### source.js:  function (data)
+A function that prints to string a variable data that can contain functions, 
+objects, arrays, any sort of javascript data. Used for debugging purposes.
+ - `data`: Any javascript variable, can be an object, can contain functions
 
-### test(element, params)
+### test.js: function (element, params)
 This is a `component` following this document definition.
 To test your `component` that follows this document definition too.
  - object `params` properties:
